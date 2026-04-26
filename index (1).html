@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELITE NICKNAME ENGINE V4</title>
+
+    <meta name="google-site-verification" content="googleff7f10d725a692f2" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ELITE NICKNAME ENGINE V4">
+    <meta property="og:description" content="★ Professional Gaming Nicknames Generator ★">
+    <meta property="og:image" content="https://i.ibb.co/0jPmtKH1/1000099635.jpg">
+    <meta property="og:url" content="https://amethyst-hanna-14.tiiny.site">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <style>
+        :root {
+            --bg-black: #020202;
+            --cyber-gold: #ffcc00;
+            --neon-blue: #00e5ff;
+            --terminal-green: #39ff14;
+            --pro-red: #ff0055;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0; padding: 15px;
+            text-align: center;
+        }
+
+        .main-header {
+            padding: 40px 0;
+            background: linear-gradient(180deg, #001220 0%, #020202 100%);
+            border-bottom: 2px solid var(--pro-red);
+            margin-bottom: 30px;
+        }
+
+        .main-header h1 { font-size: 2rem; letter-spacing: 5px; color: var(--pro-red); margin: 0; }
+        .main-header p { color: var(--neon-blue); font-size: 0.8rem; margin-top: 10px; }
+
+        .app-box {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #0a0a0a;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #1a1a1a;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 20px;
+            background: #000;
+            border: 1px solid #333;
+            color: var(--cyber-gold);
+            font-size: 1.8rem;
+            text-align: center;
+            border-radius: 8px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .generate-btn {
+            background: var(--cyber-gold);
+            color: black;
+            border: none;
+            padding: 18px;
+            width: 100%;
+            margin-top: 15px;
+            font-weight: 900;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: 0.2s;
+        }
+
+        .generate-btn:hover { background: #e6b800; filter: drop-shadow(0 0 10px var(--cyber-gold)); }
+
+        #outputDisplay { margin-top: 30px; }
+
+        .result-row {
+            background: #111;
+            margin-bottom: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid var(--neon-blue);
+            font-size: 1.4rem;
+            transition: 0.3s;
+        }
+
+        .result-row:hover { background: #1a1a1a; transform: translateX(5px); }
+
+        .copy-tag { font-size: 0.7rem; color: var(--cyber-gold); border: 1px solid; padding: 2px 8px; border-radius: 4px; }
+
+        .library-title { margin-top: 50px; color: var(--terminal-green); text-transform: uppercase; }
+        .master-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 8px;
+            background: #000;
+            padding: 15px;
+            border-radius: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #222;
+        }
+
+        .symbol-cell {
+            height: 50px;
+            display: flex; align-items: center; justify-content: center;
+            background: #080808; border: 1px solid #151515; font-size: 1.2rem; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-header">
+        <h1>ELITE NICKNAME ENGINE V4</h1>
+        <p>ADVANCED ASYMMETRIC ALGORITHM • V4.1</p>
+    </div>
+
+    <div class="app-box">
+        <input type="text" id="playerName" class="input-field" placeholder="ENTER NICKNAME..." autocomplete="off">
+        <button class="generate-btn" onclick="executeAlgorithm()">RUN GENERATION</button>
+        <div id="outputDisplay"></div>
+    </div>
+
+    <h3 class="library-title">PRO SYMBOLS LIBRARY | مكتبة الرموز الاحترافية</h3>
+    <div id="libraryContainer" class="master-grid"></div>
+
+    <script>
+        // دمج كامل للبيانات والرموز
+        const GLOBAL_DATA = `꧁ ꧂ 🤐 🤑 🤒 🤓 🤔 🤕 🤗 ༼ ༽ ༕ ༖ ࿄ ࿅ ࿇ ࿈ ࿉ ࿊ ࿋ ࿌ ࿏ ♪ ♫ ♩ ♬ ♭ ♮ ♯ ° ø ☩ ☨ ☦ ✞ ✟ ✛ ✜ ✝ ✙ ✠ ✚ † ‡ ☥ ☓ ☯ ☧ ☬ ☸ ✡ ♁ ✙ ♆ 卐 ࿕ ࿖ ✯ ☭ ☪ Ⓐ ☮ ✌ 👹 ⛧ ⛥ ⛪ 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 🕛 🕜 🕝 🕞 🕟 🕠 🕡 🕢 🕣 🕤 🕥 🕦 ⏰ ⏲ ♥ ❤ ❣ ❦ ❧ ♡ ۵ ღ 💔 💖 💝 💘 ❤️ 💛 💚 💙 💜 🔮 💗 💕 💞 💓 💟 💌 👫 👭 👬 💑 💏 👪 💒 🏩 🤍 💍 👰 😍 😘 😽 😻 😚 💋 ❥ 🪀 🖤 ✁ ✂ ✃ ✄ ✐ ✎ ✏ ✑ ✒ ✍ ✉ ⌨ ⚊ ⚋ ☰ ☳ ☴ ☵ ☶ ☷ ✅ ❎ ☐ ☑ ☒ ✔ ✘ 🆗 ✓ 👌 👍 👎 ⚿ 🔑 🔏 🔐 🔒 🔓 🐱 😺 😸 😹 😻 😼 😽 🙀 😿 😾 🐈 🐯 🐅 🦁 🐆 🐶 🐺 🐕 🐩 🐾 🦊 🪼 🐰 🐇 🐭 🐹 🐁 🐀 🐷 🐖 🐽 🐗 🐐 🐏 🐑 🐻 🐼 🐨 🐮 🐄 🐃 🐂 🐴 ♘ ♞ 🐎 🎠 🏇 🦄 🐵 🙈 🙉 🙊 🐒 🦍 🦌 🐪 🐫 🐘 🦏 🐿 🐔 🐓 🐤 🐣 🐥 🦃 🐧 🐦 🦆 🦅 🦉 🦇 🕊 🐝 🐛 🦋 🐌 🐚 🐞 🐜 🕸 🐸 🐢 🐍 🦎 🐊 🐉 🥑 🐲 🦂 🦀 🦑 🐙 🦈 🐳 🐋 🏃 🏊 🎿 ⛸ ⛷ 🏂 🏄 🏇 ⛹ 🏋 🏌 ⚽ ⚾ 🏈 🏉 🎾 🏀 ☔ 🏆 🏅 🏁 ⛳ ⛺ 🎯 🎰  🎲 🍏 🍎 🍐 🍊 🍋 🍌 🍉 🍇 🍓 🍈 🥷 🍒 🍑 🍍 🥝 🍅 🍆 🥒 🥕 🌽 🌶 🥔 🍠 🌰 🥜 🍯 🥐 🍞 🥖 🧀 🥚 🍳 🥓 🥞 🍤 🍗 🍖 🍕 🌭 🍔 🍟 🥙 🌮 🌯 🥗 🥘 🍝 🍜 🍲 🍥 🍣 🍱 🍛 🍙 🍚 🍘 🍢 🍡 🍧 🍨 🍦 🍰 🎂 🍮 🍭 🍬 🍫 🍿 🍩 🍪 🥛 🍼 ☕️ 🍵 🍶 🍺 🍻 🥂 🍷 🥃 🍸 🍹 🍾 🥄 🍴 🍽 ♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ 🥏 ♑ ♒ ♓ ⛎ ☀ ☼ ☉ 🌞 🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 🌙 ☽ ☾ 🌛 🌜 🌝 🌚 ☄ ⚸ ★ ☆ ⚝ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ⭐ ✦ ✧ 🌟 🌠 ✶ ✡ 🔯 ☪ ❂ ✴ ✵ ♟️✷ ✸ ✹ ✺ ✻ ✼ ❄ ❅ ❆ ❇ ❈ ❉ ❊ 🔆 🔅 ✿ ❀ ❁ ✾ 🌺 🌻 🌹 🌷 🌼 🪫 🌸 💐 ⚘ 💮 🏵 🥀 👓 👔 👕 👖 👗 👘 👚 💅 💍 👑 🎩 🎓 🎱 👞 👟 👠 👡 👢 👛 👜 🎒 ♔ ♕ ♖ ♗ ♘ ♙ ♚ ♛ ♜ ♝ ♞ ♟ ▀ ▂ ▃ ▄ ▅ ▆ ▇ █ ░ ▒ ▓ ■ □ ▪ ▫ ▬ ▭ ▮ ▯ ◘ ◙ ◈ ◊ ❖ ◆ ◇ ▲ △ ▶ ▷ ▼ ▽ ◀ ◁ ◢ ◣ ◤ ◥ ◉ ○ ◌ ◍ ◎ ● ◐ ◑ ◦ ◯ ➔ ➘ ➙ ➚ ➛ ➜ ➝ ➞ ➟ ➠ ➡ ➢ ➣ ➤ ➥ ➦ ➧ ➨ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ Ⅻ Ⅼ Ⅽ Ⅾ Ⅿ 🈁 🈂 🈐 🈑 🈒 🈓 🈔 🈕 🈖 🈗 🈘 🈙 🈚 🈛 🈜 🈝 🈞 🈟 🈠 🈡 🈢 🈣 🈤 🈥 🈦 🈧 🈨 🈩 🈪 🈫 🈬 🈭 🈮 🈯 🈰 🈱 🈲 🈳 🈴 🈵 🈶 🈷 🈸 🈹 🈺 シ ツ 亗 〆 ⚔️ ⚡ ☬ 🔱 ♚ ♛ 🐉 🃏 ☔ 💭 🐦‍🔥 🧃 🍯 ☁️`.split(/\s+/).filter(i => i.length > 0 && !/^[a-z]+$/i.test(i));
+
+        const EMOJI_LIST = GLOBAL_DATA.filter(s => s.match(/\p{Emoji}/u));
+        const SYMBOL_LIST = GLOBAL_DATA.filter(s => !s.match(/\p{Emoji}/u));
+
+        const COLOR_GROUPS = [
+            ["❤️", "🪫", "🌹", "🐦‍🔥", "🍷", "㊗️"],
+            ["💙", "🧊", "🌊", "💎", "🪼", "🥏"],
+            ["💚", "🍀", "🐉", "🥑", "🧃", "🍃"],
+            ["💛", "⭐", "🌕", "🍯", "👑", "⚡"], 
+            ["🖤", "♟️", "🥷", "🕸️", "🕷️",
+"🎱"],      
+            ["🃏", "👻", "☃️", "🕊️", "💭",
+"🤍"],
+            ["👾", "🪻", "☔", "🫐", "🪀",
+"🔮"],
+            ["🧡", "🍂", "🍁", "🦊","🪔",
+"☄️"]
+         ];
+        
+        function executeAlgorithm() {
+            const name = document.getElementById('playerName').value;
+            const output = document.getElementById('outputDisplay');
+            if(!name) return;
+            output.innerHTML = "";
+            for(let i=0; i<10; i++) {
+                let leftEmoji, rightEmoji;
+                if (i < 5) { 
+                    const group = COLOR_GROUPS[Math.floor(Math.random() * COLOR_GROUPS.length)];                   
+                    leftEmoji = group[Math.floor(Math.random() * group.length)];
+                    rightEmoji = group[Math.floor(Math.random() * group.length)];
+                } else {
+                    leftEmoji = EMOJI_LIST[Math.floor(Math.random() * EMOJI_LIST.length)];
+                    rightEmoji = EMOJI_LIST[Math.floor(Math.random() * EMOJI_LIST.length)];
+                }
+                const leftSym = SYMBOL_LIST[Math.floor(Math.random() * SYMBOL_LIST.length)];
+                const rightSym = SYMBOL_LIST[Math.floor(Math.random() * SYMBOL_LIST.length)];
+                const finalDecor = `${leftEmoji}${leftSym} ${name} ${rightSym}${rightEmoji}`;
+                const row = document.createElement('div');
+                row.className = 'result-row';
+                row.innerHTML = `<span>${finalDecor}</span><span class="copy-tag">COPY</span>`;
+                row.onclick = () => {
+                    navigator.clipboard.writeText(finalDecor);
+                    alert("Copied: " + finalDecor);
+                };
+                output.appendChild(row);
+            }
+        }
+
+        function buildMasterLibrary() {
+            const container = document.getElementById('libraryContainer');
+            container.innerHTML = GLOBAL_DATA.map(s => `<div class="symbol-cell" onclick="navigator.clipboard.writeText('${s}')">${s}</div>`).join('');
+        }
+        window.onload = buildMasterLibrary;
+    </script>
+</body>
+</html>
